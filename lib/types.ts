@@ -10,4 +10,14 @@ export type Category = {
   id: string;
   name: string;
   description: string;
-}; 
+};
+
+export interface SurpriseContent {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  contentUrl: string;
+  contentType: "video" | "sound";
+}

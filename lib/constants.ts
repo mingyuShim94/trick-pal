@@ -1,4 +1,4 @@
-import { Category, MetaImage } from "@/lib/types";
+import { Category, MetaImage, SurpriseContent } from "@/lib/types";
 
 export const CATEGORIES: Category[] = [
   {
@@ -90,5 +90,83 @@ export const META_IMAGES: MetaImage[] = [
     title: "Your Daily Fortune: Click to Find Out",
     description: "Daily fortune results",
     thumbnail: "/images/meta/luck-2.webp",
+  },
+];
+
+export const SURPRISE_CATEGORIES = [
+  {
+    id: "jumpscare",
+    name: "Jump Scares",
+    description: "Sudden scary surprises",
+  },
+  {
+    id: "humor",
+    name: "Humor",
+    description: "Funny and unexpected content",
+  },
+  {
+    id: "trending",
+    name: "Trending",
+    description: "Popular memes and trends",
+  },
+];
+
+export const SURPRISE_CONTENTS: SurpriseContent[] = [
+  // Jump Scares
+  {
+    id: "jump-1",
+    category: "jumpscare",
+    title: "Zombie Jump",
+    description: "A zombie suddenly appears on screen",
+    thumbnail: "/images/surprises/jump-1.webp",
+    contentUrl: "/videos/surprises/zombie-jump.mp4",
+    contentType: "video",
+  },
+  {
+    id: "jump-2",
+    category: "jumpscare",
+    title: "Ghost Approach",
+    description: "A ghost slowly approaches then rushes",
+    thumbnail: "/images/surprises/jump-2.webp",
+    contentUrl: "/videos/surprises/ghost-approach.mp4",
+    contentType: "video",
+  },
+  // Humor
+  {
+    id: "humor-1",
+    category: "humor",
+    title: "Wake Up!",
+    description: "'Are you sleeping?' message with sudden yell",
+    thumbnail: "/images/surprises/humor-1.webp",
+    contentUrl: "/audio/surprises/wake-up-yell.mp3",
+    contentType: "sound",
+  },
+  {
+    id: "humor-2",
+    category: "humor",
+    title: "Cute to Funny",
+    description: "Cute animal video with funny meme transition",
+    thumbnail: "/images/surprises/humor-2.webp",
+    contentUrl: "/videos/surprises/cute-funny.mp4",
+    contentType: "video",
+  },
+  // Trending
+  {
+    id: "trend-1",
+    category: "trending",
+    title: "TikTok Challenge Parody",
+    description: "Popular TikTok challenge with a twist",
+    thumbnail: "/images/surprises/trend-1.webp",
+    contentUrl: "/videos/surprises/tiktok-parody.mp4",
+    contentType: "video",
+  },
+  {
+    id: "trend-2",
+    category: "trending",
+    title: "Meme Compilation",
+    description: "Current trending memes mashup",
+    thumbnail: "/images/surprises/trend-2.webp",
+    contentUrl: "/videos/surprises/meme-comp.mp4",
+    contentType: "video",
   },
 ];
