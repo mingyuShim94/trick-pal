@@ -119,8 +119,8 @@ export const SURPRISE_CONTENTS: SurpriseContent[] = [
     title: "Zombie Jump",
     description: "A zombie suddenly appears on screen",
     thumbnail: "/images/surprises/jump-1.webp",
-    contentUrl: "/videos/surprises/zombie-jump.mp4",
-    contentType: "video",
+    contentUrl: "https://www.youtube.com/shorts/ANzkrSzpkgk",
+    contentType: "youtube-shorts",
   },
   {
     id: "jump-2",
@@ -128,8 +128,8 @@ export const SURPRISE_CONTENTS: SurpriseContent[] = [
     title: "Ghost Approach",
     description: "A ghost slowly approaches then rushes",
     thumbnail: "/images/surprises/jump-2.webp",
-    contentUrl: "/videos/surprises/ghost-approach.mp4",
-    contentType: "video",
+    contentUrl: "https://www.youtube.com/shorts/ZvptCPrknP8",
+    contentType: "youtube-shorts",
   },
   // Humor
   {
@@ -138,8 +138,8 @@ export const SURPRISE_CONTENTS: SurpriseContent[] = [
     title: "Wake Up!",
     description: "'Are you sleeping?' message with sudden yell",
     thumbnail: "/images/surprises/humor-1.webp",
-    contentUrl: "/audio/surprises/wake-up-yell.mp3",
-    contentType: "sound",
+    contentUrl: "https://www.youtube.com/watch?v=HqGsT6VM8Vg",
+    contentType: "youtube",
   },
   {
     id: "humor-2",
@@ -147,8 +147,8 @@ export const SURPRISE_CONTENTS: SurpriseContent[] = [
     title: "Cute to Funny",
     description: "Cute animal video with funny meme transition",
     thumbnail: "/images/surprises/humor-2.webp",
-    contentUrl: "/videos/surprises/cute-funny.mp4",
-    contentType: "video",
+    contentUrl: "https://www.youtube.com/watch?v=54U6BgYuJMY",
+    contentType: "youtube",
   },
   // Trending
   {
@@ -157,8 +157,8 @@ export const SURPRISE_CONTENTS: SurpriseContent[] = [
     title: "TikTok Challenge Parody",
     description: "Popular TikTok challenge with a twist",
     thumbnail: "/images/surprises/trend-1.webp",
-    contentUrl: "/videos/surprises/tiktok-parody.mp4",
-    contentType: "video",
+    contentUrl: "https://www.youtube.com/watch?v=uV_k8yK92dI",
+    contentType: "youtube",
   },
   {
     id: "trend-2",
@@ -166,7 +166,7 @@ export const SURPRISE_CONTENTS: SurpriseContent[] = [
     title: "Meme Compilation",
     description: "Current trending memes mashup",
     thumbnail: "/images/surprises/trend-2.webp",
-    contentUrl: "/videos/surprises/meme-comp.mp4",
-    contentType: "video",
+    contentUrl: "https://www.youtube.com/watch?v=uV_k8yK92dI",
+    contentType: "youtube",
   },
 ];

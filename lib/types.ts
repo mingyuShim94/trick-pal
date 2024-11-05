@@ -19,5 +19,5 @@ export interface SurpriseContent {
   description: string;
   thumbnail: string;
   contentUrl: string;
-  contentType: "video" | "sound";
+  contentType: "youtube" | "youtube-shorts";
 }

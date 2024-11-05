@@ -34,7 +34,7 @@ export function SurpriseContentCard({
           className="object-cover"
         />
         <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
-          {content.contentType === "video" ? "Video" : "Sound"}
+          {content.contentType === "youtube-shorts" ? "Shorts" : "Video"}
         </div>
       </div>
       <h3 className="font-semibold text-gray-900">{content.title}</h3>
