@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { META_IMAGES, SURPRISE_CONTENTS } from "@/lib/constants";
@@ -13,18 +12,15 @@ export default function PreviewPage() {
   const metaImageId = searchParams.get("image");
   const contentId = searchParams.get("content");
 
-  const [isPlaying, setIsPlaying] = useState(false);
-
   const metaImage = META_IMAGES.find((img) => img.id === metaImageId);
   const surpriseContent = SURPRISE_CONTENTS.find(
     (content) => content.id === contentId
   );
 
-  useEffect(() => {
-    if (!metaImageId || !contentId) {
-      router.push("/create");
-    }
-  }, [metaImageId, contentId, router]);
+  if (!metaImageId || !contentId) {
+    router.push("/create");
+    return null;
+  }
 
   if (!metaImage || !surpriseContent) {
     return null;
@@ -55,18 +51,12 @@ export default function PreviewPage() {
 
           <div className="space-y-4">
             <h2 className="text-xl font-semibold">Surprise Content Preview</h2>
-            <PreviewPlayer
-              content={surpriseContent}
-              isPlaying={isPlaying}
-              onPlayComplete={() => setIsPlaying(false)}
-            />
-            <Button
-              variant="default"
-              className="w-full"
-              onClick={() => setIsPlaying(true)}
-            >
-              Test Surprise
-            </Button>
+            <div className="aspect-video relative rounded-lg overflow-hidden border bg-black">
+              <PreviewPlayer
+                content={surpriseContent}
+                onPlayComplete={() => {}}
+              />
+            </div>
           </div>
         </div>
 

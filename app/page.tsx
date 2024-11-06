@@ -15,7 +15,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div>
           <Button
             variant="default"
             size="lg"
@@ -23,15 +23,6 @@ export default function Home() {
             onClick={() => router.push("/create")}
           >
             Create Surprise Link
-          </Button>
-
-          <Button
-            variant="outline"
-            size="lg"
-            className="w-full"
-            onClick={() => router.push("/gallery")}
-          >
-            Browse Popular Links
           </Button>
         </div>
 

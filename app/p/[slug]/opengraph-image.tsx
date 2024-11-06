@@ -10,8 +10,7 @@ export const size = {
 };
 
 export default async function Image({ params }: { params: { slug: string } }) {
-  const parts = params.slug.split("-");
-  const metaImageId = parts.slice(0, -1).join("-");
+  const [metaImageId] = params.slug.split(/-(?=[^-]+-[^-]+$)/);
   const metaImage = META_IMAGES.find((img) => img.id === metaImageId);
 
   return new ImageResponse(

@@ -112,61 +112,63 @@ export const SURPRISE_CATEGORIES = [
 ];
 
 export const SURPRISE_CONTENTS: SurpriseContent[] = [
-  // Jump Scares
   {
     id: "jump-1",
     category: "jumpscare",
-    title: "Zombie Jump",
-    description: "A zombie suddenly appears on screen",
-    thumbnail: "/images/surprises/jump-1.webp",
+    title: "Baseball Surprise",
+    description: "A baseball suddenly flies toward the screen",
+    thumbnail: "/images/surprises/1.webp",
     contentUrl: "https://www.youtube.com/shorts/ANzkrSzpkgk",
     contentType: "youtube-shorts",
   },
   {
     id: "jump-2",
     category: "jumpscare",
-    title: "Ghost Approach",
-    description: "A ghost slowly approaches then rushes",
-    thumbnail: "/images/surprises/jump-2.webp",
+    title: "Basement Creature",
+    description:
+      "A creature crawls slowly in the basement, then suddenly appears from the side",
+    thumbnail: "/images/surprises/2.webp",
     contentUrl: "https://www.youtube.com/shorts/ZvptCPrknP8",
     contentType: "youtube-shorts",
   },
-  // Humor
   {
-    id: "humor-1",
-    category: "humor",
-    title: "Wake Up!",
-    description: "'Are you sleeping?' message with sudden yell",
-    thumbnail: "/images/surprises/humor-1.webp",
+    id: "jump-3",
+    category: "jumpscare",
+    title: "Peaceful Drive",
+    description:
+      "A peaceful drive through the mountains turns into a sudden zombie encounter",
+    thumbnail: "/images/surprises/3.webp",
     contentUrl: "https://www.youtube.com/watch?v=HqGsT6VM8Vg",
     contentType: "youtube",
   },
   {
-    id: "humor-2",
-    category: "humor",
-    title: "Cute to Funny",
-    description: "Cute animal video with funny meme transition",
-    thumbnail: "/images/surprises/humor-2.webp",
+    id: "jump-4",
+    category: "jumpscare",
+    title: "Snowy Drive",
+    description:
+      "A peaceful drive in black and white snowy road turns terrifying when a ghost in white dress suddenly appears",
+    thumbnail: "/images/surprises/4.webp",
     contentUrl: "https://www.youtube.com/watch?v=54U6BgYuJMY",
     contentType: "youtube",
   },
-  // Trending
   {
-    id: "trend-1",
-    category: "trending",
-    title: "TikTok Challenge Parody",
-    description: "Popular TikTok challenge with a twist",
-    thumbnail: "/images/surprises/trend-1.webp",
+    id: "jump-5",
+    category: "jumpscare",
+    title: "Spider Surprise",
+    description:
+      "A spider creeps along quietly before suddenly crashing into the screen",
+    thumbnail: "/images/surprises/5.webp",
     contentUrl: "https://www.youtube.com/watch?v=uV_k8yK92dI",
     contentType: "youtube",
   },
   {
-    id: "trend-2",
-    category: "trending",
-    title: "Meme Compilation",
-    description: "Current trending memes mashup",
-    thumbnail: "/images/surprises/trend-2.webp",
-    contentUrl: "https://www.youtube.com/watch?v=uV_k8yK92dI",
+    id: "jump-6",
+    category: "jumpscare",
+    title: "Forest Walk Surprise",
+    description:
+      "A peaceful walk in the forest turns shocking when Koyote suddenly appears",
+    thumbnail: "/images/surprises/6.webp",
+    contentUrl: "https://www.youtube.com/watch?v=Zyc3C1kB0Tg",
     contentType: "youtube",
   },
 ];

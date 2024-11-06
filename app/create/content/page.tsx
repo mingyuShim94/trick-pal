@@ -12,9 +12,7 @@ export default function ContentSelectPage() {
   const searchParams = useSearchParams();
   const metaImageId = searchParams.get("image");
 
-  const [selectedCategory, setSelectedCategory] = useState(
-    SURPRISE_CATEGORIES[0].id
-  );
+  const [selectedCategory, setSelectedCategory] = useState("jumpscare");
   const [selectedContent, setSelectedContent] = useState<string | null>(null);
 
   useEffect(() => {
@@ -46,7 +44,13 @@ export default function ContentSelectPage() {
                 key={category.id}
                 category={category}
                 isSelected={selectedCategory === category.id}
-                onClick={() => setSelectedCategory(category.id)}
+                onClick={() => {
+                  if (category.id === "jumpscare") {
+                    setSelectedCategory(category.id);
+                  }
+                }}
+                disabled={category.id !== "jumpscare"}
+                comingSoon={category.id !== "jumpscare"}
               />
             ))}
           </div>
