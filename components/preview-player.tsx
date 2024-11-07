@@ -29,6 +29,7 @@ export function PreviewPlayer({ content, onPlayComplete }: PreviewPlayerProps) {
       modestbranding: 1,
       rel: 0,
       mute: 1,
+      origin: window.location.origin,
     },
   };
 
