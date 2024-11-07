@@ -3,6 +3,8 @@
 import { META_IMAGES, SURPRISE_CONTENTS } from "@/lib/constants";
 import { PreviewPlayer } from "@/components/preview-player";
 
+export const runtime = "edge";
+
 export default function SurprisePage({ params }: { params: { slug: string } }) {
   const [metaImageId, contentId] = params.slug.split(/-(?=[^-]+-[^-]+$)/);
 
