@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { META_IMAGES } from "@/lib/constants";
+import Image from "next/image";
 
 export const runtime = "edge";
 
@@ -9,9 +10,17 @@ export const size = {
   height: 630,
 };
 
-export default async function Image({ params }: { params: { slug: string } }) {
+export default async function generateImage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const [metaImageId] = params.slug.split(/-(?=[^-]+-[^-]+$)/);
   const metaImage = META_IMAGES.find((img) => img.id === metaImageId);
+
+  if (!metaImage) {
+    throw new Error("Image not found");
+  }
 
   return new ImageResponse(
     (
@@ -38,13 +47,12 @@ export default async function Image({ params }: { params: { slug: string } }) {
             position: "relative",
           }}
         >
-          <img
-            src={metaImage?.thumbnail}
-            alt={metaImage?.title}
+          <Image
+            src={metaImage.thumbnail || ""}
+            alt={metaImage.title || "Image"}
+            layout="fill"
+            objectFit="cover"
             style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
               borderRadius: "12px",
             }}
           />
