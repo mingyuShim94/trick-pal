@@ -23,13 +23,17 @@ export async function generateMetadata({
     openGraph: {
       title: metaImage.title,
       description: metaImage.description,
-      images: [`/images/meta/${metaImageId}.webp`],
+      images: [
+        `${process.env.NEXT_PUBLIC_BASE_URL}/images/meta/${metaImageId}.webp`,
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: metaImage.title,
       description: metaImage.description,
-      images: [`/images/meta/${metaImageId}.webp`],
+      images: [
+        `${process.env.NEXT_PUBLIC_BASE_URL}/images/meta/${metaImageId}.webp`,
+      ],
     },
   };
 }
