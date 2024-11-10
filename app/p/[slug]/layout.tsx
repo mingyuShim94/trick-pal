@@ -55,19 +55,37 @@ export async function generateMetadata({
     }
 
     // 이미지 URL 생성
+    // const imageUrl = new URL(
+    //   `images/meta/${metaImageId}.webp`,
+    //   baseUrl.replace(/\/$/, "")
+    // ).toString();
     const imageUrl = new URL(
-      `images/meta/${metaImageId}.webp`,
-      baseUrl.replace(/\/$/, "")
+      `/images/meta/${metaImageId}.webp`,
+      baseUrl
     ).toString();
 
+    console.log("Generated Image URL:", imageUrl);
+    console.log("Base URL:", baseUrl);
+    console.log(
+      "MetadataBase:",
+      new URL(baseUrl.replace(/\/$/, "")).toString()
+    );
+
     return {
-      metadataBase: new URL(baseUrl),
+      metadataBase: new URL(baseUrl.replace(/\/$/, "")),
       title: metaImage.title,
       description: metaImage.description,
       openGraph: {
         title: metaImage.title,
         description: metaImage.description,
-        images: [{ url: imageUrl }],
+        images: [
+          {
+            url: metaImage.thumbnail,
+            width: 1200,
+            height: 630,
+            alt: metaImage.title,
+          },
+        ],
         type: "website",
         siteName: "TrickPal",
       },
@@ -75,7 +93,14 @@ export async function generateMetadata({
         card: "summary_large_image",
         title: metaImage.title,
         description: metaImage.description,
-        images: [{ url: imageUrl }],
+        images: [
+          {
+            url: metaImage.thumbnail,
+            width: 1200,
+            height: 630,
+            alt: metaImage.title,
+          },
+        ],
       },
       icons: { icon: "/favicon.webp" },
     };
