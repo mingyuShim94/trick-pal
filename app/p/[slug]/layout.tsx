@@ -1,11 +1,6 @@
 import { META_IMAGES } from "@/lib/constants";
 import { Metadata, ResolvingMetadata } from "next";
 
-type Props = {
-  params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
 // 기본 메타데이터 정의
 const defaultMetadata: Metadata = {
   title: "TrickPal",
@@ -25,7 +20,7 @@ const defaultMetadata: Metadata = {
 };
 
 export async function generateMetadata(
-  { params }: Props,
+  { params }: { params: { slug: string } },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   try {
