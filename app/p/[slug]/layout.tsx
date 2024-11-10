@@ -67,7 +67,7 @@ export async function generateMetadata({
       openGraph: {
         title: metaImage.title,
         description: metaImage.description,
-        images: [imageUrl],
+        images: [{ url: imageUrl }],
         type: "website",
         siteName: "TrickPal",
       },
@@ -75,7 +75,7 @@ export async function generateMetadata({
         card: "summary_large_image",
         title: metaImage.title,
         description: metaImage.description,
-        images: [imageUrl],
+        images: [{ url: imageUrl }],
       },
       icons: { icon: "/favicon.webp" },
     };
