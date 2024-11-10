@@ -56,8 +56,8 @@ export async function generateMetadata({
 
     // 이미지 URL 생성
     const imageUrl = new URL(
-      `/images/meta/${metaImageId}.webp`,
-      baseUrl
+      `images/meta/${metaImageId}.webp`,
+      baseUrl.replace(/\/$/, "")
     ).toString();
 
     return {
