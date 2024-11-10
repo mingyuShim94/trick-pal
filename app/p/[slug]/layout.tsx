@@ -25,13 +25,14 @@ export async function generateMetadata({
   return {
     title: metaImage.title,
     description: metaImage.description,
+
     openGraph: {
       title: metaImage.title,
       description: metaImage.description,
       images: [imageUrl],
-      // 추가 openGraph 속성
       type: "website",
       siteName: "TrickPal",
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/p/${params.slug}`,
     },
     twitter: {
       card: "summary_large_image",
@@ -75,7 +76,13 @@ function getDefaultMetadata(): Metadata {
 
 // 이미지 URL 생성 함수
 function getMetaImageUrl(imageId: string): string {
-  return `${process.env.NEXT_PUBLIC_BASE_URL}/images/meta/${imageId}.webp`;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  if (!baseUrl) {
+    console.error("NEXT_PUBLIC_BASE_URL is not defined");
+    return "/default-image.webp"; // 기본 이미지 경로
+  }
+  const imageUrl = `${baseUrl}/images/meta/${imageId}.webp`;
+  return imageUrl;
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
