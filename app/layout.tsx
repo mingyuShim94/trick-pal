@@ -19,11 +19,17 @@ export const metadata: Metadata = {
     "TrickPal - Share surprising links with your friends! Create fun moments by sharing unexpected videos and sounds. Choose from intriguing meta images and prank your friends with entertaining content. Make memorable moments together with this easy-to-use surprise link sharing app.",
   icons: { icon: "/favicon.webp" },
   openGraph: {
-    images: ["/root_metaImage.png"],
+    title: "TrickPal",
+    description:
+      "TrickPal - Share surprising links with your friends! Create fun moments by sharing unexpected videos and sounds. Choose from intriguing meta images and prank your friends with entertaining content. Make memorable moments together with this easy-to-use surprise link sharing app.",
+    images: [`${process.env.NEXT_PUBLIC_BASE_URL}/root_metaImage.png`],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/root_metaImage.png"],
+    title: "TrickPal",
+    description:
+      "TrickPal - Share surprising links with your friends! Create fun moments by sharing unexpected videos and sounds. Choose from intriguing meta images and prank your friends with entertaining content. Make memorable moments together with this easy-to-use surprise link sharing app.",
+    images: [`${process.env.NEXT_PUBLIC_BASE_URL}/root_metaImage.png`],
   },
 };
 
