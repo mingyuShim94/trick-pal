@@ -1,5 +1,5 @@
 import { META_IMAGES } from "@/lib/constants";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 
 // 기본 메타데이터 정의
 const defaultMetadata: Metadata = {
@@ -19,10 +19,11 @@ const defaultMetadata: Metadata = {
   icons: { icon: "/favicon.webp" },
 };
 
-export async function generateMetadata(
-  { params }: { params: { slug: string } },
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   try {
     // slug가 없는 경우 처리
     if (!params.slug) {
@@ -59,9 +60,6 @@ export async function generateMetadata(
       baseUrl
     ).toString();
 
-    // 부모 메타데이터 가져오기
-    const previousImages = (await parent).openGraph?.images || [];
-
     return {
       metadataBase: new URL(baseUrl),
       title: metaImage.title,
@@ -69,7 +67,7 @@ export async function generateMetadata(
       openGraph: {
         title: metaImage.title,
         description: metaImage.description,
-        images: [imageUrl, ...previousImages],
+        images: [imageUrl],
         type: "website",
         siteName: "TrickPal",
       },
