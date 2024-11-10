@@ -1,7 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["your-domain.com"], // 실제 도메인으로 변경
+    domains: ["your-domain.com"],
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: "frame-ancestors 'self' https://www.youtube.com",
+          },
+        ],
+      },
+    ];
   },
 };
 
