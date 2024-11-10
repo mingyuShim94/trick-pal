@@ -69,7 +69,8 @@ export async function generateMetadata(
       openGraph: {
         title: metaImage.title,
         description: metaImage.description,
-        images: [imageUrl, ...previousImages],
+        // images: [imageUrl, ...previousImages],
+        images: [`${process.env.NEXT_PUBLIC_BASE_URL}/root_metaImage.png`],
         type: "website",
         siteName: "TrickPal",
       },
