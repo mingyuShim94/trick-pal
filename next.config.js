@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["your-domain.com"],
+    domains: ["trick-pal.pages.dev"],
   },
   async headers() {
     return [
