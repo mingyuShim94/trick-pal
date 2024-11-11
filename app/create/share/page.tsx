@@ -41,7 +41,7 @@ function SharePageContent({
     }
 
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || window.location.origin;
-    setShareUrl(`${baseUrl}/share/${metaImageId}-${contentId}`);
+    setShareUrl(`${baseUrl}/p/${metaImageId}-${contentId}`);
   }, [metaImageId, contentId, router]);
 
   if (!metaImageId || !contentId) {
