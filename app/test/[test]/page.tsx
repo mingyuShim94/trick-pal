@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 
+export const runtime = "edge";
+
 interface TestPageProps {
   params: {
     test: string;
