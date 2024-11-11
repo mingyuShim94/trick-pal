@@ -76,11 +76,14 @@ export async function generateMetadata({
       title: metaImage.title,
       description: metaImage.description,
       openGraph: {
-        title: metaImage.title,
-        description: metaImage.description,
+        // title: metaImage.title,
+        title: "TrickPal",
+        // description: metaImage.description,
+        description: "Fun surprise link sharing service",
         images: [
           {
-            url: metaImage.thumbnail,
+            // url: metaImage.thumbnail,
+            url: imageUrl,
             width: 1200,
             height: 630,
             alt: metaImage.title,
@@ -95,7 +98,8 @@ export async function generateMetadata({
         description: metaImage.description,
         images: [
           {
-            url: metaImage.thumbnail,
+            // url: metaImage.thumbnail,
+            url: imageUrl,
             width: 1200,
             height: 630,
             alt: metaImage.title,
