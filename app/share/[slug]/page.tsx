@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 
 export const runtime = "edge";
 
-export default function SurprisePage({ params }: { params: { test: string } }) {
+export default function SurprisePage({ params }: { params: { slug: string } }) {
   const [isVideoComplete, setIsVideoComplete] = useState(false);
-  const [metaImageId, contentId] = params.test.split(/-(?=[^-]+-[^-]+$)/);
+  const [metaImageId, contentId] = params.slug.split(/-(?=[^-]+-[^-]+$)/);
 
   const metaImage = META_IMAGES.find((img) => img.id === metaImageId);
   const surpriseContent = SURPRISE_CONTENTS.find(
