@@ -71,19 +71,57 @@ export async function generateMetadata({
       new URL(baseUrl.replace(/\/$/, "")).toString()
     );
 
+    // 절대 URL로 이미지 경로 생성
+    const absoluteImageUrl = new URL(metaImage.thumbnail, baseUrl).toString();
+
+    // return {
+    //   metadataBase: new URL(baseUrl.replace(/\/$/, "")),
+    //   title: metaImage.title,
+    //   description: metaImage.description,
+    //   openGraph: {
+    //     title: metaImage.title,
+    //     description: metaImage.description,
+    //     images: [
+    //       {
+    //         url: metaImage.thumbnail,
+    //         width: 1200,
+    //         height: 630,
+    //         alt: metaImage.title,
+    //       },
+    //     ],
+    //     type: "website",
+    //     siteName: "TrickPal",
+    //   },
+    //   twitter: {
+    //     card: "summary_large_image",
+    //     title: metaImage.title,
+    //     description: metaImage.description,
+    //     images: [
+    //       {
+    //         url: metaImage.thumbnail,
+    //         width: 1200,
+    //         height: 630,
+    //         alt: metaImage.title,
+    //       },
+    //     ],
+    //   },
+    //   icons: { icon: "/favicon.webp" },
+    // };
+
     return {
-      metadataBase: new URL(baseUrl.replace(/\/$/, "")),
-      title: metaImage.title,
-      description: metaImage.description,
+      metadataBase: new URL(baseUrl),
+      // 제목: 핵심 키워드를 앞에 배치
+      title: `${metaImage.title} | TrickPal`,
+      // 설명: 명확하고 구체적으로
+      description: `${metaImage.description}. Share surprising moments with TrickPal - Fun and unexpected content sharing platform.`,
       openGraph: {
-        // title: metaImage.title,
-        title: "TrickPal",
-        // description: metaImage.description,
-        description: "Fun surprise link sharing service",
+        // 소셜 미디어용 제목: 더 매력적이고 클릭을 유도하는 형태
+        title: `${metaImage.title} 👀 | TrickPal`,
+        // 소셜 미디어용 설명: 행동을 유도하는 문구 포함
+        description: `${metaImage.description}. Click to discover what your friend wants to share with you!`,
         images: [
           {
-            // url: metaImage.thumbnail,
-            url: imageUrl,
+            url: absoluteImageUrl,
             width: 1200,
             height: 630,
             alt: metaImage.title,
@@ -94,17 +132,10 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: metaImage.title,
-        description: metaImage.description,
-        images: [
-          {
-            // url: metaImage.thumbnail,
-            url: imageUrl,
-            width: 1200,
-            height: 630,
-            alt: metaImage.title,
-          },
-        ],
+        // 트위터용 제목도 동일하게 최적화
+        title: `${metaImage.title} 👀 | TrickPal`,
+        description: `${metaImage.description}. Click to see what's waiting for you!`,
+        images: [absoluteImageUrl],
       },
       icons: { icon: "/favicon.webp" },
     };
