@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { CATEGORIES, META_IMAGES } from "@/lib/constants";
 import { MetaImageCard } from "@/components/meta-image-card";
 import { CategoryTab } from "@/components/category-tab";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function CreatePage() {
   const [selectedCategory, setSelectedCategory] = useState(CATEGORIES[0].id);
@@ -15,19 +17,20 @@ export default function CreatePage() {
   );
 
   return (
-    <main className="min-h-screen p-4 bg-gradient-to-b from-blue-50 to-blue-100">
-      <div className="max-w-4xl mx-auto space-y-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Select Meta Image
-          </h1>
-          <p className="text-gray-600 mt-2">
-            Choose a meta image that will spark curiosity
+    <main className="min-h-screen p-4 bg-gradient-to-br from-purple-400 via-pink-500 to-red-500">
+      <Card className="max-w-4xl mx-auto border-4 border-yellow-400 shadow-[0_0_20px_rgba(255,255,0,0.5)] bg-white/90 backdrop-blur-sm dark:bg-zinc-900/90">
+        <CardHeader className="text-center space-y-2">
+          <CardTitle className="text-4xl font-extrabold">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+              Select Meta Image
+            </span>
+          </CardTitle>
+          <p className="text-xl font-bold text-purple-600 dark:text-purple-400">
+            Choose an image that will spark curiosity! 🎭
           </p>
-        </div>
-
-        <div className="bg-white rounded-lg shadow p-4">
-          <div className="flex gap-2 overflow-x-auto pb-4">
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="flex gap-2 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-yellow-400 scrollbar-track-transparent">
             {CATEGORIES.map((category) => (
               <CategoryTab
                 key={category.id}
@@ -48,23 +51,32 @@ export default function CreatePage() {
               />
             ))}
           </div>
-        </div>
 
-        <div className="flex justify-end gap-4">
-          <Button variant="outline" onClick={() => window.history.back()}>
-            Previous
-          </Button>
-          <Button
-            variant="default"
-            disabled={!selectedImage}
-            onClick={() =>
-              (window.location.href = `/create/content?image=${selectedImage}`)
-            }
-          >
-            Next
-          </Button>
-        </div>
-      </div>
+          <div className="flex justify-between gap-4 mt-8">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => window.history.back()}
+              className="font-bold text-lg border-4 border-pink-500 text-pink-600 hover:bg-pink-100 dark:hover:bg-pink-900 transition-all duration-300 transform hover:scale-105 hover:-translate-x-2"
+            >
+              <ChevronLeft className="w-5 h-5 mr-2" />
+              Previous
+            </Button>
+            <Button
+              variant="default"
+              size="lg"
+              disabled={!selectedImage}
+              onClick={() =>
+                (window.location.href = `/create/content?image=${selectedImage}`)
+              }
+              className="font-bold text-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 hover:translate-x-2"
+            >
+              Next
+              <ChevronRight className="w-5 h-5 ml-2" />
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
     </main>
   );
 }
