@@ -8,9 +8,11 @@ const cardVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gradient-to-br from-[#FFE5FF]/10 to-[#E8FFF7]/10 backdrop-blur-xl border border-[#ffffff1a]",
-        solid: "bg-[#2A2356]",
-        outline: "border border-[#ffffff1a] bg-transparent",
+          "bg-gradient-to-br from-purple-400/10 to-pink-500/10 backdrop-blur-xl border border-yellow-400/20 dark:from-purple-900/30 dark:to-pink-900/30 dark:border-yellow-600/20",
+        solid:
+          "bg-gradient-to-br from-purple-500 to-pink-600 text-white dark:from-purple-700 dark:to-pink-800",
+        outline:
+          "border-2 border-yellow-400 bg-transparent dark:border-yellow-600",
       },
       size: {
         sm: "p-4",
@@ -18,7 +20,7 @@ const cardVariants = cva(
         lg: "p-8",
       },
       hover: {
-        true: "hover:shadow-lg hover:scale-105",
+        true: "hover:shadow-lg hover:shadow-yellow-400/20 dark:hover:shadow-yellow-600/20 hover:scale-105",
         false: "",
       },
     },
@@ -66,7 +68,7 @@ const CardTitle = React.forwardRef<
   <h3
     ref={ref}
     className={cn(
-      "text-2xl font-semibold leading-none tracking-tight bg-gradient-to-br from-[#E8FFF7] to-[#FFE5FF] bg-clip-text text-transparent",
+      "text-2xl font-bold leading-none tracking-tight bg-gradient-to-br from-yellow-400 to-pink-500 bg-clip-text text-transparent dark:from-yellow-300 dark:to-pink-400",
       className
     )}
     {...props}
@@ -80,7 +82,10 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-[#E8FFF7]/60", className)}
+    className={cn(
+      "text-sm text-purple-700/80 dark:text-purple-300/80",
+      className
+    )}
     {...props}
   />
 ));

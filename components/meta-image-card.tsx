@@ -2,6 +2,8 @@ import { MetaImage } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { memo } from "react";
+import { motion } from "framer-motion";
+import { Check } from "lucide-react";
 
 interface MetaImageCardProps {
   image: MetaImage;
@@ -15,16 +17,18 @@ export const MetaImageCard = memo(function MetaImageCard({
   onSelect,
 }: MetaImageCardProps) {
   return (
-    <div
+    <motion.div
       onClick={onSelect}
       className={cn(
-        "cursor-pointer rounded-lg border-2 p-4 transition-all",
+        "cursor-pointer rounded-lg border-4 p-4 transition-all duration-300 transform hover:scale-105",
         isSelected
-          ? "border-blue-600 bg-blue-50"
-          : "border-transparent bg-white hover:border-gray-200"
+          ? "border-yellow-400 bg-gradient-to-br from-yellow-100 to-yellow-200 dark:from-yellow-900 dark:to-yellow-800 shadow-lg"
+          : "border-transparent bg-white dark:bg-zinc-800 hover:border-pink-300 dark:hover:border-pink-700 hover:shadow-md"
       )}
+      whileHover={{ y: -5 }}
+      whileTap={{ scale: 0.95 }}
     >
-      <div className="aspect-video relative rounded-md overflow-hidden mb-4">
+      <div className="aspect-video relative rounded-md overflow-hidden mb-4 shadow-inner">
         <Image
           src={image.thumbnail}
           alt={image.title}
@@ -41,14 +45,23 @@ export const MetaImageCard = memo(function MetaImageCard({
           unoptimized={process.env.NODE_ENV === "development"}
           fetchPriority="high"
         />
+        {isSelected && (
+          <div className="absolute inset-0 bg-yellow-500 bg-opacity-50 flex items-center justify-center">
+            <Check className="w-16 h-16 text-white" />
+          </div>
+        )}
       </div>
-      <h3 className="font-semibold text-gray-900">{image.title}</h3>
-      <p className="text-sm text-gray-500 mt-1">{image.description}</p>
-    </div>
+      <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100">
+        {image.title}
+      </h3>
+      <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">
+        {image.description}
+      </p>
+    </motion.div>
   );
 });
 
-// 이미지 로딩 중 표시될 shimmer 효과
+// Image loading shimmer effect
 const shimmer = (w: number, h: number) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
